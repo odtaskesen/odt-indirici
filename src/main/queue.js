@@ -3,7 +3,7 @@ const { classify, splitInput } = require('./urls');
 const ytdlp = require('./ytdlp');
 const gallerydl = require('./gallerydl');
 
-const IG_GAP_RANGE = [3, 8]; // art arda iki Instagram işi arasında saniye
+const IG_GAP_RANGE = [1, 3]; // art arda iki Instagram işi arasında saniye
 
 class Queue {
   // deps: {

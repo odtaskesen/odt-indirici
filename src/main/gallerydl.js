@@ -4,7 +4,7 @@ const path = require('path');
 const { runProcess, redact } = require('./runner');
 const { toolPaths } = require('./tools');
 
-const SLEEP_RANGE = [3, 8];
+const SLEEP_RANGE = [1, 3];
 
 // gallery-dl yapılandırması: her gönderi kendi klasörüne, karosel sırası dosya adında
 function configObject() {
