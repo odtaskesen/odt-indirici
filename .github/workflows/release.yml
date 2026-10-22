@@ -17,11 +17,18 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - run: npx electron-builder --mac --arm64 --publish always
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: npx electron-builder --mac --arm64 --publish never
       - name: İmzayı doğrula (ad-hoc olmalı)
         run: |
           mkdir -p /tmp/v && hdiutil attach dist/*.dmg -mountpoint /tmp/v -nobrowse -quiet
           codesign -dv "/tmp/v/ODT Indirici.app" 2>&1 | grep -E "Signature|Identifier"
           hdiutil detach /tmp/v -quiet
+      - name: Release'e yükle
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" \
+            dist/ODT-Indirici-*-arm64.dmg \
+            dist/ODT-Indirici-*-arm64.dmg.blockmap \
+            dist/latest-mac.yml \
+            --title "$GITHUB_REF_NAME" --generate-notes
