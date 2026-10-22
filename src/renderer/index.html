@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; script-src 'self'; img-src 'self' data:;">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ODT İndirici</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>ODT İndirici</h1>
+    <div class="spacer"></div>
+    <div id="ig-box">
+      <span id="ig-status"></span>
+      <button id="ig-btn" class="small"></button>
+    </div>
+    <button id="settings-btn" class="small ghost" title="Ayarlar">⚙︎ Ayarlar</button>
+  </header>
+
+  <div id="update" class="banner hidden">
+    <div id="update-text"></div>
+    <div><button id="update-btn" class="small primary">İndir</button></div>
+  </div>
+
+  <div id="setup" class="banner hidden">
+    <div id="setup-text"></div>
+    <div class="bar"><div id="setup-bar"></div></div>
+    <button id="setup-retry" class="small hidden">Tekrar dene</button>
+  </div>
+
+  <main>
+    <label for="links">Linkler (her satıra bir tane)</label>
+    <textarea id="links" rows="5" spellcheck="false" placeholder="https://www.instagram.com/p/...&#10;https://www.youtube.com/watch?v=..."></textarea>
+
+    <div class="row">
+      <div class="seg" id="format-seg" title="Sadece YouTube ve diğer video siteleri için">
+        <span class="seg-label">YouTube kalitesi:</span>
+        <label><input type="radio" name="format" value="mp4" checked> Uyumlu MP4 (1080p’ye kadar)</label>
+        <label><input type="radio" name="format" value="best"> En iyi kalite (MKV/WebM olabilir)</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <button id="download-btn" class="primary" disabled>İndir</button>
+      <button id="cancel-btn" class="danger hidden">İptal</button>
+      <div class="spacer"></div>
+      <button id="clear-btn" class="small ghost">Listeyi temizle</button>
+    </div>
+
+    <ul id="jobs"></ul>
+  </main>
+
+  <footer>
+    <span id="folder-path" title=""></span>
+    <button id="folder-change" class="small ghost">Değiştir</button>
+    <button id="folder-open" class="small">Klasörü aç</button>
+  </footer>
+
+  <dialog id="settings-dialog">
+    <h2>Ayarlar</h2>
+    <p><strong>Instagram</strong></p>
+    <p><button id="ig-logout" class="small">Instagram’dan çıkış yap</button></p>
+    <p><strong>Sürümler</strong></p>
+    <table id="versions"></table>
+    <p><button id="update-check" class="small">Güncellemeleri kontrol et</button> <span id="update-result" class="hint"></span></p>
+    <p class="hint">Araçlar (gallery-dl, yt-dlp) günde bir kez kendiliğinden güncellenir.</p>
+    <p><button id="settings-close" class="primary small">Kapat</button></p>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>

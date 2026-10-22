@@ -1,0 +1,59 @@
+{
+  "name": "odt-indirici",
+  "productName": "ODT İndirici",
+  "version": "0.1.0",
+  "description": "Instagram, YouTube ve diğer sitelerden video/fotoğraf indirici",
+  "main": "src/main/main.js",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "test": "node test/urls.test.js"
+  },
+  "devDependencies": {
+    "electron": "^45.0.0",
+    "electron-builder": "^26.15.3"
+  },
+  "dependencies": {
+    "yauzl": "^3.4.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/odtaskesen/odt-indirici.git"
+  },
+  "author": "odtaskesen",
+  "build": {
+    "appId": "com.odt.indirici",
+    "productName": "ODT Indirici",
+    "artifactName": "ODT-Indirici-${version}-${arch}.${ext}",
+    "files": [
+      "src/**/*",
+      "build/icon.png",
+      "package.json"
+    ],
+    "publish": {
+      "provider": "github",
+      "owner": "odtaskesen",
+      "repo": "odt-indirici",
+      "releaseType": "release"
+    },
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "arm64"
+          ]
+        }
+      ],
+      "identity": "-",
+      "category": "public.app-category.utilities",
+      "icon": "build/icon.png",
+      "entitlements": "build/entitlements.mac.plist",
+      "entitlementsInherit": "build/entitlements.mac.plist",
+      "extendInfo": {
+        "CFBundleDisplayName": "ODT İndirici"
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  mac:
+    runs-on: macos-latest # M çipli (arm64) runner
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx electron-builder --mac --arm64 --publish always
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: İmzayı doğrula (ad-hoc olmalı)
+        run: |
+          mkdir -p /tmp/v && hdiutil attach dist/*.dmg -mountpoint /tmp/v -nobrowse -quiet
+          codesign -dv "/tmp/v/ODT Indirici.app" 2>&1 | grep -E "Signature|Identifier"
+          hdiutil detach /tmp/v -quiet
