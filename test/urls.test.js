@@ -17,8 +17,10 @@ assert.strictEqual(c('https://www.instagram.com/tv/ABC123').url, 'https://www.in
 assert.strictEqual(c('https://www.instagram.com/share/p/ABC123/').kind, 'instagram-share');
 assert.strictEqual(c('https://www.instagram.com/share/reel/ABC123/').kind, 'instagram-share');
 assert.strictEqual(c('https://www.instagram.com/someuser/').kind, 'unsupported');
-assert.strictEqual(c('https://www.instagram.com/stories/someuser/123/').kind, 'unsupported');
-assert.ok(/story/.test(c('https://www.instagram.com/stories/someuser/123/').message));
+assert.strictEqual(c('https://www.instagram.com/stories/someuser/123/').kind, 'instagram');
+assert.strictEqual(c('https://www.instagram.com/stories/someuser/4013381744685337921/?igsh=x').url, 'https://www.instagram.com/stories/someuser/4013381744685337921/');
+assert.strictEqual(c('https://www.instagram.com/stories/someuser/').kind, 'unsupported');
+assert.strictEqual(c('https://www.instagram.com/stories/highlights/1789/').kind, 'unsupported');
 
 // youtube
 assert.strictEqual(c('https://www.youtube.com/playlist?list=PL123').kind, 'unsupported');

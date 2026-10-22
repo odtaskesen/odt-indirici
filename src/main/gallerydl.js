@@ -16,6 +16,10 @@ function configObject() {
         filename: '{username}_{post_shortcode}_{num:>02}.{extension}',
         // "merged": hazır birleşik h264+aac MP4 (düzenleme programlarında açılır). true/dash VP9 verir.
         videos: 'merged',
+        // Story'lerde post_shortcode ortak olduğundan ad media_id ile benzersiz yapılır
+        stories: {
+          filename: '{username}_story_{media_id}.{extension}',
+        },
       },
     },
   };

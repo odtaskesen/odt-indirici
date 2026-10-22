@@ -1,6 +1,6 @@
 # ODT İndirici
 
-Instagram (gönderi, karosel, reels), YouTube (video, Shorts) ve TikTok gibi birçok siteden link yapıştırıp video/fotoğraf indirmeye yarayan Mac programı. Terminal, eklenti veya kurulum bilgisi gerekmez.
+Instagram (gönderi, karosel, reels, story), YouTube (video, Shorts) ve TikTok gibi birçok siteden link yapıştırıp video/fotoğraf indirmeye yarayan Mac programı. Terminal, eklenti veya kurulum bilgisi gerekmez.
 
 > Sadece **M çipli Mac'ler** (Apple Silicon) için. Windows ve Intel Mac sürümü şu an yok.
 
@@ -19,7 +19,8 @@ Instagram (gönderi, karosel, reels), YouTube (video, Shorts) ve TikTok gibi bir
 - Dosyalar doğrudan **İndirilenler** klasörüne iner. Klasörü "Değiştir" ile seçebilirsin.
 - **Instagram:** ilk Instagram linkinde program, kendi içinde bir giriş penceresi açar. Kendi hesabınla bir kez giriş yap (yeni cihaz doğrulama kodu isteyebilir). Şifreni program görmez ve saklamaz. Çıkış için Ayarlar → "Instagram'dan çıkış yap".
 - **YouTube kalitesi:** "Uyumlu MP4" (varsayılan; H.264+AAC, 1080p'ye kadar, her programda açılır) veya "En iyi kalite" (MKV/WebM olabilir).
-- Desteklenmeyenler: Instagram story/highlight/profil, YouTube playlist ve kanal.
+- Instagram story: story'yi açıp tek bir story'nin linkini ver (`…/stories/kullanıcı/sayı/`). Story'ler 24 saat sonra silindiği için linkin o süre içinde indirilmesi gerekir.
+- Desteklenmeyenler: Instagram highlight/profil, bir kullanıcının tüm story'leri, YouTube playlist ve kanal.
 
 ## Güncelleme
 

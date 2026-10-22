@@ -55,8 +55,12 @@ function classify(raw) {
         return { kind: 'instagram', url: `https://www.instagram.com/${canon}/${code}/`, message: '' };
       }
     }
+    // /stories/<kullanıcı>/<story id>: tek bir story (highlight ve kullanıcının tüm story'leri hariç)
+    if (parts[0] === 'stories' && parts[1] && parts[1] !== 'highlights' && /^\d+$/.test(parts[2] || '')) {
+      return { kind: 'instagram', url: `https://www.instagram.com/stories/${parts[1]}/${parts[2]}/`, message: '' };
+    }
     if (parts[0] === 'stories' || parts[0] === 's') {
-      return { kind: 'unsupported', url, message: 'Instagram story/highlight bu sürümde desteklenmiyor.' };
+      return { kind: 'unsupported', url, message: 'Bu story linki desteklenmiyor. Story’yi açıp tek bir story’nin linkini (…/stories/kullanıcı/sayı/) kopyala. Highlight bu sürümde desteklenmiyor.' };
     }
     return { kind: 'unsupported', url, message: 'Instagram profil linkleri bu sürümde desteklenmiyor. Tek bir gönderi, karosel veya reels linki ver.' };
   }
